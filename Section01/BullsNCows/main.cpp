@@ -22,9 +22,12 @@ int main()
 
 	cin >> Guess;
 	cout << "You entered the word : \n\n" << Guess << endl;
+	cout << "\nEnter your answer here : " << endl;
+	cin >> Guess;
+	cout << "You entered the word : \n\n" << Guess << endl;
 
 	// Keep guessing the input from the player
 
-
+	cout << endl;
 	return 0;
 }
