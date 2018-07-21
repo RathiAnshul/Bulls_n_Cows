@@ -17,16 +17,14 @@ int main()
 	cout << "\nEnter your answer here : " << endl;
 
 	// Getting Input from the player
-
 	string Guess = "";
+	getline(cin, Guess);
+	cout << "You guess was : \n\n" << Guess << endl;
 
-	cin >> Guess;
-	cout << "You entered the word : \n\n" << Guess << endl;
+	// Repeating the input from the player
 	cout << "\nEnter your answer here : " << endl;
-	cin >> Guess;
-	cout << "You entered the word : \n\n" << Guess << endl;
-
-	// Keep guessing the input from the player
+	getline(cin, Guess);
+	cout << "You guess was : \n\n" << Guess << endl;
 
 	cout << endl;
 	return 0;
