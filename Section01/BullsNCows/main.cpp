@@ -1,18 +1,19 @@
 #include <iostream>
 #include <conio.h>
 #include <string>
+#include "FBullCowsGame.h"
 
-using namespace std;
 void PrintInfo();
 void PlayGame();
 bool AskToPlayAgain();
-string GetGuess();
+std::string GetGuess();
+
+FBullCowGame BCGame; //Instantiate A New Game
 
 // Game Entry Point
 int main()
 {
-	bool bPlayAgain = false;
-	
+	bool bPlayAgain = false;	
 	do
 	{
 		PrintInfo();
@@ -31,40 +32,44 @@ void PrintInfo()
 {
 	constexpr int WORD_LENGTH = 9;
 
-	cout << "Welcome to Bulls & Cows" << endl;
-	cout << "It's a fun word Game." << endl;
-	cout << "Can you guess the " << WORD_LENGTH;
-	cout << " letter isogram word I am thinking of right now ?" << endl;
+	std::cout << "Welcome to Bulls & Cows" << std::endl;
+	std::cout << "It's a fun word Game." << std::endl;
+	std::cout << "Can you guess the " << WORD_LENGTH;
+	std::cout << " letter isogram word I am thinking of right now ?" << std::endl;
 	return;
 }
 
 // Actual game play
 void PlayGame()
 {
-	constexpr int LIMIT = 5;
-	for (int count = 1; count <= LIMIT; count++)
+	int MaxTries = BCGame.GetMaxTries();
+	std::cout << MaxTries << std::endl;
+
+	for (int count = 1; count <= MaxTries; count++)
 	{
-		string Guess = GetGuess();
-		cout << "You guess was : " << Guess << endl;
-		cout << endl;
+		std::string Guess = GetGuess();
+		std::cout << "You guess was : " << Guess << std::endl;
+		std::cout << std::endl;
 	}
 }
 
 // Getting Input from the player
-string GetGuess()
+std::string GetGuess()
 {	
-	cout << "\nEnter your answer here : " << endl;
-	string Guess = "";
-	getline(cin, Guess);
+	int CurrentTry = BCGame.GetCurrentTry();
+	
+	std::cout << "\n Try "<< CurrentTry <<": Enter your answer here : " << std::endl;
+	std::string Guess = "";
+	std::getline(std::cin, Guess);
 	return Guess;
 }
 
 // Asking if player want's to continue?
 bool AskToPlayAgain()
 {
-	cout << "Do you want to play again?";
-	string Response = "";
-	getline(cin, Response);
+	std::cout << "Do you want to play again?";
+	std::string Response = "";
+	std::getline(std::cin, Response);
   return ((Response[0] == 'y') || (Response[0] =='Y'));
-	cout << endl;
+	std::cout << std::endl;
 }
