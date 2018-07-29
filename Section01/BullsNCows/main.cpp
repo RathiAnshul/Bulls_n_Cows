@@ -11,9 +11,17 @@ string GetGuess();
 // Game Entry Point
 int main()
 {
-	PrintInfo ();
-	PlayGame();
-	AskToPlayAgain();
+	bool bPlayAgain = false;
+	
+	do
+	{
+		PrintInfo();
+		PlayGame();
+		bPlayAgain = AskToPlayAgain();
+	}
+	while
+		(bPlayAgain);
+
 	//Exiting game here
 	return 0;
 }
