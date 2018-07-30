@@ -1,4 +1,4 @@
-﻿  FBullCowsGame.cpp
-  main.cpp
-  Generating Code...
-  BullsNCows.vcxproj -> S:\GitHub\Unreal\Bulls_n_Cows\Section01\Debug\BullsNCows.exe
+﻿  main.cpp
+s:\github\unreal\bulls_n_cows\section01\bullsncows\main.cpp(14): error C2248: 'FBullCowGame::FBullCowGame': cannot access private member declared in class 'FBullCowGame'
+  s:\github\unreal\bulls_n_cows\section01\bullsncows\fbullcowsgame.h(9): note: see declaration of 'FBullCowGame::FBullCowGame'
+  s:\github\unreal\bulls_n_cows\section01\bullsncows\fbullcowsgame.h(8): note: see declaration of 'FBullCowGame'
