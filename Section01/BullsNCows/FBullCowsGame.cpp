@@ -10,7 +10,9 @@ void FBullCowGame::Reset()
 {
 	constexpr int32 MAX_TRIES = 8;
 	MyMaxTries = MAX_TRIES;
-	
+	const Fstring HIDDEN_WORD = "planet";
+	MyHiddenWord = HIDDEN_WORD;
+
 	MyCurrentTries = 1;
 	return;
 }
@@ -23,4 +25,39 @@ bool FBullCowGame::IsGameWon() const
 bool FBullCowGame::CheckGuessValidaity(Fstring)
 {
 	return false;
+}
+
+//Valiedating guess, counting BULLS & COWS & increimentiong it
+FBullCowCount FBullCowGame::SubmitGuess(Fstring Guess)
+{
+	MyCurrentTries++;
+	FBullCowCount BullCowCount;
+
+	int32 HiddenWordLength = MyHiddenWord.length();
+	for (int32 MHWChar=0; MHWChar<HiddenWordLength; MHWChar++)
+	{
+		for (int32 GChar = 0; GChar < HiddenWordLength; GChar++)
+		{
+			if (Guess[GChar] == MyHiddenWord[MHWChar])
+			{
+				if (MHWChar = GChar)
+				{
+					BullCowCount.Bulls++;
+				}
+				else
+				{
+					BullCowCount.Cows++;
+				}
+			}
+		}
+	}
+
+	//Loop through all letters in word.
+		//compares lettes agains the words.
+			//if they match then.
+				//if they are in same place.
+					//increment bulls
+				//if they not.
+					//increment cows.
+	return BullCowCount;
 }
